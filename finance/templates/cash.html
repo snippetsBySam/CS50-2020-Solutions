@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cash
+{% endblock %}
+
+{% block main %}
+<div class="text-left">
+    <h1>Current Balance: <b>{{ cash }}</b></h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+
+        <div class="card">
+            <div class="card-header">
+                Deposit Cash
+            </div>
+            <div class="card-body">
+                <form class="card-text" action="/cash_deposit" method="post">
+                    <div class="form-group">
+                        Amount:<br><input class="form-control" name="deposit" placeholder="cash" type="number" min="1"
+                            required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Deposit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                Withdraw Cash
+            </div>
+            <div class="card-body">
+                <form class="card-text" action="/cash_withdrawal" method="post">
+                    <div class="form-group">
+                        Amount:<br><input class="form-control" name="withdrawal" placeholder="cash" type="number"
+                            min="1" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Withdraw</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
